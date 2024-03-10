@@ -1,0 +1,51 @@
+{% load custom_tags %}
+<div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <h1 class="brand-title">Бложик</h1>
+        <h2 class="brand-tagline">Обо всём на свете</h2>
+
+        <nav class="nav">
+            {% with request.resolver_match as rm %}
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{% url 'blog:root' %}" style="{{ rm|is_active:'root' }}">
+                        Главная
+                    </a>
+                </li>
+            </ul>
+
+            {% get_categories as categories %}
+            {% for item in categories %}
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="{% url 'blog:category' name=item.category %}" style="{{ rm|is_active:item.category }}">
+                            {{ item.label }}
+                        </a>
+                    </li>
+                </ul>
+            {% endfor %}
+
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{% url 'blog:technology' %}" style="{{ rm|is_active:'technology' }}">Технологии</a>
+                </li>
+            </ul>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{% url 'blog:year' %}" style="{{ rm|is_active:'year' }}">Задача #1018</a>
+                </li>
+            </ul>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{% url 'blog:about' %}" style="{{ rm|is_active:'about' }}">О нас</a>
+                </li>
+            </ul>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{% url 'blog:feedback' %}" style="{{ rm|is_active:'feedback' }}">Обратная связь</a>
+                </li>
+            </ul>
+            {% endwith %}
+        </nav>
+    </div>
+</div>

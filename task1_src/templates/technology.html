@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2 class="content-subhead">Использовались след. технологии:</h2>
+    <p>
+       <ul>
+            <li>Django {{ django_version }}</li>
+            <li>HTML5</li>
+            <li>PureCSS</li>
+            <li>Github</li>
+        </ul>
+    </p>
+{% endblock %}

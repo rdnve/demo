@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block title %}Упс!{% endblock %}
+
+{% block content %}
+    <h1>404</h1>
+    {{ exception }}
+{% endblock %}

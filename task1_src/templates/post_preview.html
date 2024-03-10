@@ -1,0 +1,22 @@
+<section class="post">
+    <header class="post-header">
+        <img width="48" height="48" alt="Аватарка" class="post-avatar" src="https://gravatar.com/avatar/8e73c46aff6af97270721e49f963dc53?s=200&d=mp&r=r">
+
+        <h2 class="post-title">{{ post.title }} <a href="{{ post.url }}">»</a></h2>
+
+        <p class="post-meta">
+            Автор <a class="post-author" href="#">{{ post.created_by }}</a>
+            в категории <a class="post-category {{ post.category_style }}" href="{{ post.category_url }}">{{ post.get_category_display }}</a>
+        </p>
+    </header>
+
+    <div class="post-description">
+        <p>
+            {% if is_preview %}
+                {{ post.description }} <a href="{{ post.url }}">»</a>
+            {% else %}
+                {{ post.body }}
+            {% endif %}
+        </p>
+    </div>
+</section>

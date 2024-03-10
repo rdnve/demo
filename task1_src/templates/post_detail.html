@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+{% block title %}
+    Запись от {{ post.created_at|date:"d.m.Y H:m:i" }}
+{% endblock %}
+
+{% block content %}
+    {% include "post_preview.html" with post=post is_preview=False %}
+{% endblock %}

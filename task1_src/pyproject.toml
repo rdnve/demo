@@ -1,20 +1,24 @@
 [tool.poetry]
-name = "demo"
+name = "lesson1-src"
 version = "0.1.0"
 description = ""
 authors = ["serje ù <example@domain.ltd>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "lesson1_src"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pandas = "^2.2.0"
+django = "^5.0.1"
+django-environ = "^0.11.2"
+python-slugify = "^8.0.4"
+pillow = "^10.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
 black = "^24.1.1"
 isort = "^5.13.2"
-openpyxl = "^3.1.2"
-matplotlib = "^3.8.3"
-seaborn = "^0.13.2"
-
+mypy = "^1.8.0"
 
 [build-system]
 requires = ["poetry-core"]

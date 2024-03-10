@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block content %}
+    <h2 class="content-subhead">Об авторе</h2>
+    <p>
+        <table>
+            <tbody>
+                <tr data-width="100px">
+                    <td>
+                        <img src="{{ data.me.picture }}" class="post-avatar" width="150px" />
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ФИО: {{ data.me.full_name }}</li>
+                            <li>Тлф: <a href="callto:{{ data.me.phone_number }}">{{ data.me.phone_number }}</a></li>
+                            <li>Почта: <a href="mailto:{{ data.me.email }}?subject=Привет, познакомимся?">{{ data.me.email }}</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+    <h2 class="content-subhead">Образовательная программа</h2>
+    <p>
+        <ul>
+            <li>Название: {{ data.faculty.name }}</li>
+            <li>Описание: {{ data.faculty.name }}</li>
+        </ul>
+    </p>
+
+    <h2 class="content-subhead">Руководитель</h2>
+    <p>
+        <table>
+            <tbody>
+                <tr data-width="100px">
+                    <td>
+                        <img src="{{ data.faculty.lead.picture }}" class="post-avatar" width="150px" />
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ФИО: {{ data.faculty.lead.full_name }}</li>
+                            <li>Тлф: <a href="callto:{{ data.faculty.lead.phone_number }}">{{ data.faculty.lead.phone_number }}</a></li>
+                            <li>Почта: <a href="mailto:{{ data.faculty.lead.email }}?subject=Хочу учиться у вас, пустите?">{{ data.faculty.lead.email }}</a></li>
+                            <li>Профиль: <a href="{{ data.faculty.lead.staff }}" target="_blank">перейти</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+    <h2 class="content-subhead">Менеджер</h2>
+    <p>
+        <table>
+            <tbody>
+                <tr data-width="100px">
+                    <td>
+                        <img src="{{ data.faculty.manager.picture }}" class="post-avatar" width="150px" />
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ФИО: {{ data.faculty.manager.full_name }}</li>
+                            <li>Тлф: <a href="callto:{{ data.faculty.manager.phone_number }}">{{ data.faculty.manager.phone_number }}</a></li>
+                            <li>Почта: <a href="mailto:{{ data.faculty.manager.email }}?subject=Хочу учиться у вас, пустите?">{{ data.faculty.manager.email }}</a></li>
+                            <li>Профиль: <a href="{{ data.faculty.manager.staff }}" target="_blank">перейти</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+    <h2 class="content-subhead">Сокурсники</h2>
+    <p>
+        <table>
+            <tbody>
+                {% for obj in data.friends %}
+                    <tr data-width="100px">
+                        <td>
+                            <img src="{{ obj.picture }}" class="post-avatar" width="150px" />
+                        </td>
+                        <td>
+                            <ul>
+                                <li>ФИО: {{ obj.full_name }}</li>
+                                <li>Тлф: <a href="callto:{{ obj.phone_number }}">{{ obj.phone_number }}</a></li>
+                                <li>Почта: <a href="mailto:{{ obj.email }}?subject=Дароу!">{{ obj.email }}</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </p>
+
+{% endblock %}

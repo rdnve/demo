@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Главная страница{% endblock %}
+{% block title %}
+    Главная страница // сегодня {% now "d.m.Y H:i" %}
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include "post_preview.html" with post=post is_preview=True %}
+    {% endfor %}
+{% endblock %}

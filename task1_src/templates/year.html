@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    {% if year %}
+        <p>
+            Ваш год – {{ year }} {% if not is_leap %}не{% endif %} является високосным!<br />
+            Это {{ century }}-й век.
+        </p>
+        <br/>
+    {% endif %}
+    <form method="post" class="pure-form pure-form-stacked">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="reset" value="Очистить" class="pure-button">
+        <input type="submit" value="Отправить" class="pure-button pure-button-primary">
+    </form>
+{% endblock %}

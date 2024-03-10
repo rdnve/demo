@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block title %}{{ subtitle }}{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include "post_preview.html" with post=post is_preview=True %}
+    {% endfor %}
+{% endblock %}

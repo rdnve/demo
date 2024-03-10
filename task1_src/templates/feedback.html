@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{{ title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    {% if is_saved %}
+        <p>Спасибо! Ваше сообщение успешно было отправлено администратору.</p>
+    {% else %}
+        <form method="post" class="pure-form pure-form-stacked">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="reset" value="Очистить" class="pure-button">
+            <input type="submit" value="Отправить" class="pure-button pure-button-primary">
+        </form>
+    {% endif %}
+
+    {% if is_saved %}
+        <script>
+            setTimeout(() => {
+                location.href = "/feedback/"
+            }, 5 * 1000)
+        </script>
+    {% endif %}
+{% endblock %}
